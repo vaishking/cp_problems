@@ -74,37 +74,77 @@ int main()
 
     for(int i=0;i<3;i++)
     {
-    	if((s1[i]=='_') || (s2[i]=='_')|| (s3[i]=='_') )
+    	if(s1[i]=='_')
     	{
     		count_++;
     	}
-    	else if((s1[i]=='X') || (s2[i]=='X')|| (s3[i]=='X') )
-    	{
+    	else if(s1[i]=='X')
     		countX++;
-    	}
-    	else if((s1[i]=='O') || (s2[i]=='O')|| (s3[i]=='O') )
-    	{
+    	else 
     		countY++;
-    	}
     }
+    for(int i=0;i<3;i++)
+    {
+
+    	if(s2[i]=='_')
+    	{
+    		count_++;
+    	}
+    	else if(s2[i]=='X')
+    		countX++;
+    	else 
+    		countY++;
+    }
+    for(int i=0;i<3;i++)
+    {
+
+    	if(s3[i]=='_')
+    	{
+    		count_++;
+    	}
+    	else if(s3[i]=='X')
+    		countX++;
+    	else 
+    		countY++;
+    }
+
+    // cout<<countY<<countX;
     
-   if(((countWinX==1 || countWinX==2) && (countWinY==0)) || (countWinY==1 && countWinX==0) || (count_==0 && countWinX==0 && countWinY==0))
+
+    
+   if(countY>countX)
+   
+   {	cout<<3<<endl;
+      }
+   else if(countX-countY>1)
+   
+   {	cout<<3<<endl;}
+   
+   else if((countWinX==1 && countWinY==0)|| (countWinX==0 && countWinY==1))
+   	cout<<1<<endl;
+   else if((countX>countY) && countWinX==1 && countWinY==0)
    {
-   	cout<<1<<endl; //basically x has 5 moves so can win in two directions in same game 
-   	               //o can have 4 moves only
+   	cout<<1<<endl; // last value put by x and it wins
    }
-   else if(count_!=0 && countWinX+countWinY==0)
+   else if((countX==countY) && countWinY==1 && countWinX==0)
    {
-   	 cout<<2<<endl;
+   	cout<<1<<endl; //last value put by o and it wins
    }
-   else if((countY>countX )|| (countWinY>1) ||( countWinX>2) || (countX-countY>1) || (countWinY==1 && countWinX==1))
+   else if(count_==0 && (countWinX+countWinY==0))
    {
-   	cout<<3<<endl;
+   	cout<<1<<endl; //draw
+   }
+   else if(count_==0 && countWinX==2)
+   {
+   	cout<<1<<endl; // special case where x can win in two direction in one game
+   }
+   else if(count_>0 && (countWinX+countWinY==0))
+   {
+   	cout<<2<<endl;
    }
    else 
    	cout<<3<<endl;
 }
-    
 	
 	return 0;
        
