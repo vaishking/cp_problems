@@ -113,15 +113,13 @@ int main()
 
     
    if(countY>countX)
-   
-   {	cout<<3<<endl;
-      }
+   	cout<<3<<endl; 
    else if(countX-countY>1)
    
    {	cout<<3<<endl;}
    
-   else if((countWinX==1 && countWinY==0)|| (countWinX==0 && countWinY==1))
-   	cout<<1<<endl;
+   // else if((countWinX==1 && countWinY==0)|| (countWinX==0 && countWinY==1))
+   // 	cout<<1<<endl;
    else if((countX>countY) && countWinX==1 && countWinY==0)
    {
    	cout<<1<<endl; // last value put by x and it wins
