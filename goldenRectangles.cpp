@@ -6,10 +6,14 @@ int main()
 	cin>>n;
 	while(n--) {
        
-       double w, h, s;
+       double w, h, s, minimum , maximum;
        cin>>w>>h;
-       s=w/h;
-       cout<<s<<" ";
+       minimum = min(w, h);
+       maximum= max(w, h);
+       // cout<<s<<" ";
+
+       s= maximum/minimum;
+
 
        if((s>=1.60) && (s<=1.70))
          count=count+1;
