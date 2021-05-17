@@ -9,7 +9,7 @@ int main()
       /* code */
   	string s1,s2,s3;
   	cin>>s1>>s2>>s3;
-  	int countWinX=0,countWinY=0, count_=0;
+  	int countX=0 ,countY=0, countWinX=0,countWinY=0, count_=0;
     
     //horizontal
     if((s1[0]!='_') && (s1[0]==s1[1]) && (s1[1]==s1[2]))
@@ -78,21 +78,33 @@ int main()
     	{
     		count_++;
     	}
+    	else if((s1[i]=='X') || (s2[i]=='X')|| (s3[i]=='X') )
+    	{
+    		countX++;
+    	}
+    	else if((s1[i]=='O') || (s2[i]=='O')|| (s3[i]=='O') )
+    	{
+    		countY++;
+    	}
     }
     
-   
-    if(countWinX>=1 && countWinY>=1)
-    {
-    	cout<<3<<endl;
-    }
-    else if(countWinX+countWinY<1 && count_!=0)
-    {
-    	cout<<2<<endl;
-    }
-    else
-    cout<<1<<endl;
-
-  }
+   if(((countWinX==1 || countWinX==2) && (countWinY==0)) || (countWinY==1 && countWinX==0) || (count_==0 && countWinX==0 && countWinY==0))
+   {
+   	cout<<1<<endl; //basically x has 5 moves so can win in two directions in same game 
+   	               //o can have 4 moves only
+   }
+   else if(count_!=0 && countWinX+countWinY==0)
+   {
+   	 cout<<2<<endl;
+   }
+   else if((countY>countX )|| (countWinY>1) ||( countWinX>2) || (countX-countY>1) || (countWinY==1 && countWinX==1))
+   {
+   	cout<<3<<endl;
+   }
+   else 
+   	cout<<3<<endl;
+}
+    
 	
 	return 0;
        
